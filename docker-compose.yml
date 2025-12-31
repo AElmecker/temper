@@ -1,13 +1,14 @@
 ---
-version: '3'
-
 services:
   temper:
-    container_name: temper
-    hostname: temper
-    image: temper/service:latest
+    container_name: temper-prometheus-exporter
+    hostname: temper-prometheus-exporter
+    image: temper/prometheus-exporter:latest
     volumes:
       - /dev:/dev
+      - /opt/temper-prometheus-exporter/config.yml:/etc/config.yml
+      - /etc/ssl/certs/temper.crt:/etc/ssl.crt
+      - /etc/ssl/certs/temper.key:/etc/ssl.key
     restart: always
     ports:
       - 2610:2610

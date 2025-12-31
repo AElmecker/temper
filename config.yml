@@ -1,0 +1,32 @@
+server:
+  port: 2610
+  certfile: /etc/ssl.crt
+  keyfile: /etc/ssl.key
+
+
+metrics:
+  # the interval in which data is scraped from all devices
+  scrape_interval_seconds: 10
+  # prefix/namespace to use for all metrics
+  namespace: "temper"
+  lables:
+    # static labels that are added to all metrics
+    static:
+      - key: room
+        value: Office
+
+    # labels that should be added to device metrics
+    # values are scraped from the device itself
+    device:
+    #  - key: vendorid
+    #    alias: vendor_id
+    #  - key: productid
+    #    alias: product_id
+      - key: manufacturer
+      - key: product
+    #  - key: busnum
+    #  - key: devnum
+    #  - key: devices
+    #  - key: port
+      - key: firmware
+    #  - key: hex_firmware
