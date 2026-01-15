@@ -1,0 +1,16 @@
+server:
+  port: 2611
+  certfile: /etc/ssl.crt
+  keyfile: /etc/ssl.key
+status_file: /status
+
+metrics:
+  # the interval in which data is scraped from all devices
+  scrape_interval_seconds: 30
+  # prefix/namespace to use for all metrics
+#  namespace: "my.prefix"
+  lables:
+    # static labels that are added to all metrics
+    static:
+      - key: mountpoint
+        value: /media/share-disk

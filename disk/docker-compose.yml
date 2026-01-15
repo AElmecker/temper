@@ -1,0 +1,16 @@
+---
+services:
+  disk_status_prometheus_exporter:
+    container_name: disk-status-prometheus-exporter
+    hostname: disk-status-prometheus-exporter
+    image: temper/disk-status-prometheus-exporter:latest
+    volumes:
+      - /dev:/dev
+      - /opt/temper-prometheus-exporter/disk/config.yml:/etc/config.yml
+      - /etc/ssl/certs/temper.crt:/etc/ssl.crt
+      - /etc/ssl/certs/temper.key:/etc/ssl.key
+      - /var/log/mount_status:/status
+    restart: always
+    ports:
+      - 2611:2611
+    privileged: true
